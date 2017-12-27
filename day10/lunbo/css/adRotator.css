@@ -1,0 +1,72 @@
+@charset "utf-8";
+body{
+	margin: 0;
+	margin-top:3px;
+	padding: 0;
+	font-size: 12px;
+	line-height: 20px;
+	color: #333;
+		
+}
+.adver{
+	width: 426px;
+	border: solid 1px #666;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.Rotator_bg{
+	background-color: #e0e0e0;
+	height: 20px;
+	border-top: solid 1px #b4b4b4;
+}
+.number{
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #9E2E07;
+	display: block;
+	border: 1PX solid #FFF;
+	width: 18PX;
+	height: 18PX;
+	text-align: center;
+	margin-left: 10PX;
+	cursor: pointer;
+	float: left;
+}
+.numberOver{
+	color: #8c2806;
+	font-size: 14px;
+	width: 280px;
+	background-color: #fff;
+	text-align: center;
+	float: left;
+	display: block;
+	margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

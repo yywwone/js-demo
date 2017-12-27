@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>飘窗</title>
+<script language="javascript">
+function chu(){
+	//js判断浏览器高度和宽度
+	 gao= document.documentElement.clientHeight-100;
+	 kuan= document.documentElement.clientWidth-100;
+	 fun();
+	}
+function fun(){
+	var img=document.getElementById("one");
+	//获取左边和上边的距离
+	var imgLeft = parseInt(img.style.left);  //图片与左方的距离
+	var imgTop = parseInt(img.style.top);   //图片与上方的距离
+	//判断横向趋势
+	if(imgLeft<=0){
+		quLeft="jia";
+		}
+	if(imgLeft>=kuan){
+		quLeft="jian";
+		}
+	//判断纵向趋势
+	if(imgTop<=0){
+		quTop="jia"
+		}
+	if(imgTop>=gao){
+		quTop="jian"
+		}
+	//根据左侧的趋势，加减
+	if(quLeft=="jia"){
+		img.style.left=parseInt(img.style.left)+ 5 +"px";
+	}
+	if(quLeft=="jian"){
+		img.style.left=parseInt(img.style.left)- 5 +"px";
+			}
+	//根据上侧的趋势，加减
+	if(quTop=="jia"){
+		img.style.top=parseInt(img.style.top) + 5 + "px";
+	}
+	if(quTop=="jian"){
+		img.style.top=parseInt(img.style.top) - 5 + "px";
+	}
+	setTimeout("fun()",10);
+
+}
+</script>
+</head>
+
+<body onLoad="chu();">
+<img src="a.JPG" width="100" height="100" id="one" style="position:absolute; left:0;top:0;">
+</body>
+</html>

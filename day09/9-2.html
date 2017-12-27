@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function selectAll(){
+		
+		var allcheckboxs=document.getElementsByName("isBuy")
+			if(document.getElementById("a").value=="全  选")
+			{
+				for(var i=0;i<allcheckboxs.length;i++)
+				{
+				allcheckboxs[i].checked=true;
+				}
+				document.getElementById("a").value="全不选"
+			}else{
+				for(var i=0;i<allcheckboxs.length;i++)
+				{
+					allcheckboxs[i].checked=false;
+				}
+				document.getElementById("a").value="全  选"
+				}
+			
+}
+	
+</script>
+</head>
+
+<body>
+<table border="1" cellpadding="0" cellspacing="0" width="300">
+	<tr>
+		<td>
+			<form name="myform">
+				<input type="button" id="a" value="全  选" onClick="selectAll()"><br>
+				<input type="checkbox" name="isBuy">看书<br>
+				<input type="checkbox" name="isBuy">上网<br>
+				<input type="checkbox" name="isBuy">聊天<br>
+				<input type="checkbox" name="isBuy">旅游<br>
+				<input type="checkbox" name="isBuy">逛街<br>
+				<input type="checkbox" name="isBuy">购物<br>
+				<input type="checkbox" name="isBuy">唱歌<br>
+			</form>
+		</td>
+	</tr>
+	
+</table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>输出平均分2</title>
+<script>
+var score=new Array("数学:",89,"语文:",69,"英语:",97,"化学:",90,"物理:",50,"计算机:",88,"体育:",98,"思想政治:",91,"其:",9);
+var sum=0;
+document.write("总共有:"+(score.length)/2+"门课程<br>");
+document.write("每门课成绩：<br>");
+for(var i=0;i<score.length;i++){
+	document.write(score[i++]+score[i]+"<br>");
+
+
+	sum=sum+score[i];
+	
+	}	
+document.write("总分是："+sum+"<br>");
+document.write("平均分是："+sum/(score.length/2)+"<br>");
+</script>
+</head>
+
+<body>
+</body>
+</html>

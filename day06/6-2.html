@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>年龄计算</title>
+<script>
+function fun(){
+	
+
+var cid=window.prompt("请输入身份证号","");
+	var a=cid.substring(17)
+	var	year=cid.substring(6,10);
+	var yue=cid.substring(10,12);
+	var ri=cid.substring(12,14);
+	year=parseInt(year);
+	var time=new Date();
+	var	nowYear=time.getFullYear();
+	var age=nowYear-year;
+	if(cid==null){
+		document.write("程序结束");
+		}	
+if(cid.length!=18){
+		alert("请输入正确的身份证号");
+		location.href='6-2.html';
+	}
+else{
+	if(isNaN(cid)||cid.length!=18){
+		if(a=="X"||a=="x"){			
+				if(year<=1800||year>nowYear||yue>12||yue==0||ri>31||ri==0){
+					alert("请输入正确的身份证号");
+					location.href='6-2.html';				
+					}
+				else{
+					window.alert("你的年龄是:"+age);
+				}
+			}
+		else{
+			alert("请输入正确的身份证号");
+			location.href='6-2.html';
+				}				
+	}  
+	else{
+		if(year<=1800||year>nowYear||yue>12||yue==0||ri>31||ri==0){
+					alert("请输入正确的身份证号");
+					location.href='6-2.html';				
+					}
+				else{
+					window.alert("你的年龄是:"+age);
+				}		
+	}
+}			
+}	
+	
+	result=str.replace //替换
+</script>
+
+</head>
+<body onLoad="fun()">
+
+</body>
+</html>

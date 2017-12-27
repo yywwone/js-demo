@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片旋转换图</title>
+<script>
+function fun(){
+	//判断趋势
+	//1、+趋势
+	
+	var img=document.getElementById("one");
+	if(img.width<=0){
+		//换图
+		if(i==6){
+			i=1;
+			}
+		switch(i){
+			case 1:
+			img.src="b.jpg";
+			break;
+			case 2:
+			img.src="c.jpg";
+			break;
+			case 3:
+			img.src="d.jpg";
+			break;
+			case 4:
+			img.src="e.jpg";
+			break;
+			case 5:
+			img.src="a.jpg";
+			break;
+			
+			}
+		qushi=1;
+	}
+	//2、-趋势
+	if(img.width>=200){
+		qushi=2
+	}
+	
+	if(qushi==1){
+		img.width+=10;
+		img.style.marginLeft=parseInt(img.style.marginLeft)-5+"px";
+		if(img.width>=200){
+			i++;
+			clearTimeout(timeId);
+			return false;
+			}
+	}
+	if(qushi==2){
+		img.width-=10;
+		img.style.marginLeft=parseInt(img.style.marginLeft)+5+"px";
+	}	
+	timeid=setTimeout('fun()',10);
+}
+</script>
+</head>
+
+<body onLoad="i=1;">
+
+<img src="a.JPG" width="200" height="200" onClick="fun();" id="one" style="margin-left:0px;">
+</body>
+</html>

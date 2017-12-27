@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<style>
+	*:focus{outline: none}
+	.nameclass{
+		border: solid 1px #0000cc;
+	}
+	.nameclass1{
+		border: 1px solid #f00;
+	}
+</style>
+<script>
+function checkform()
+	{
+		//用户名验证
+		var regName=/^[a-zA-Z][a-zA-Z0-9_]{3,15}$/;
+		var strName=document.myform.txtName.value;
+		if(!regName.test(strName))
+			{
+				window.alert("会员名填写错误");
+				return false;
+			}
+		//密码检验
+		var regpass=/^[a-zA-Z0-9]{6,16}$/;
+		var strpass=document.myform.txtpass.value;
+		if(!regpass.test(strpass))
+			{
+				window.alert("密码填写错误");
+				return false;
+			}
+		//密码确认密码一致
+		var strrepass=document.myform.repass.value;
+		if(strpass!=strrepass)
+			{
+				window.alert("密码、确认密码不一致，请重新输入");
+				document.myform.txtpass.value="";
+				document.myform.repass.value="";
+				document.myform.txtpass.focus();
+				return false;
+			}
+		//检验email
+		var regEmail=/^\w+@\w+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2,3})?$/;
+		var email=document.myform.txtEmail.value;
+		if(!regEmail.test(email))
+			{
+				window.alert("Email有错误");
+				return false;
+			}
+		return true;
+	}
+function cleartext()
+	{
+		if(document.myform.txtName.value=="请输入会员名")
+			{
+				document.myform.txtName.value="";
+			}
+		document.myform.txtName.className="nameclass1";
+		var myDiv=document.getElementById("showdiv");
+		myDiv.innerHTML="*必填（可包含字母、数字和下划线，并以字母开头，长度4-6）";
+	}
+function checkName()
+	{
+		//用户名验证
+		var regName=/^[a-zA-Z][a-zA-Z0-9_]{3,15}$/;
+		var strName=document.myform.txtName.value;
+		if(regName.test(strName))
+			{
+			document.myform.txtName.className="nameclass";
+			}
+		else
+			{
+				var myDiv=document.getElementById("showdiv");
+				myDiv.innerHTML="<font color=red> 会员名填写不正确</font>";
+				if(document.myform.txtName.value=="")
+					{
+						document.myform.txtName.value="请输入会员名";
+					}
+			}
+	}
+function changeshow()
+	{
+	if(document.getElementById("showpass").innerHTML=="显示密码")
+		{
+			document.myform.txtpass.type="text";
+			document.getElementById("showpass").innerHTML="隐藏密码"
+		}
+	else
+		{
+			document.myform.txtpass.type="password";
+			document.getElementById("showpass").innerHTML="显示密码"
+		}
+		
+	}
+</script>
+</head>
+
+<body>
+<h1 align="center">会员注册</h1>
+<form action="12-1.html" method="post" enctype="application/x-www-form-urlencoded" name="myform" onSubmit="return checkform()">
+<table width="800" border="0" align="center">
+	<tr align="left">
+		<td>会 员 名:</td>
+		<td width="700">
+			<input class="nameclass" id="txtName" size="25" name="txtName" onFocus="cleartext()" onBlur="checkName()" value="请输入会员名">
+			<div id="showdiv" style="display: inline">*必填(可包含字符、数字和下划线，并以字母开头，长度4-16)</div>
+		</td>
+	</tr>
+	<tr align="left" height="25">
+		<td>密&nbsp;&nbsp;码:</td>
+		<td>
+			<input id="txtpass" type="password" size="25" name="txtpass" onpaste="return false" oncontextmenu="return false">
+			*必填（可包含字母和数字，长度6-16个字符）
+			<button id="showpass" onClick="changeshow()" style="display: inline; cursor: pointer" type="button">显示密码</button>
+		</td>
+	</tr>
+	<tr align="left" height="25">
+		<td>确认密码：</td>
+		<td>
+			<input id="repass" type="password" size="25" name="repass" onpaste="return false" oncontextmenu="return false">
+			*必填
+		</td>
+	</tr>
+	<tr align="left">
+		<td>点子邮件：</td>
+		<td>
+			<input id="txtEmail" size="25" name="txtEmail">
+			*必填
+		</td>
+	</tr>
+	<tr>
+		<td align="middle" colspan="2" height="65">
+			<input type="submit" value="注    册" name="mybutton">
+			<input type="reset" value="重    填"> 
+		</td>
+	</tr>	
+</table>
+</form>
+</body>
+</html>

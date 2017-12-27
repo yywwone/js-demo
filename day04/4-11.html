@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片旋转</title>
+<script>
+
+function fun(){
+	//判断趋势
+	//1、+趋势
+	var img=document.getElementById("one");
+	if(img.width<=0){
+		qushi=1;
+	}
+	//2、-趋势
+	if(img.width>=200){
+		qushi=2
+	}
+	
+	if(qushi==1){
+		img.width+=10;
+		img.style.marginLeft=parseInt(img.style.marginLeft)-5+"px";
+		if(img.width>=200){
+			clearTimeout(timeId);
+			return false;
+			}
+	}
+	if(qushi==2){
+		img.width-=10;
+		img.style.marginLeft=parseInt(img.style.marginLeft)+5+"px";
+	}	
+	timeid=setTimeout('fun()',10);
+}
+</script>
+</head>
+
+<body>
+
+<img src="a.JPG" width="200" height="200" onClick="fun();" id="one" style="margin-left:0px;">
+</body>
+</html>

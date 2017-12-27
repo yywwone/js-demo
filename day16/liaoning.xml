@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provinces>
+	<city>
+		<name>沈阳</name>
+		<count>500万</count>
+		<area>50平方公里</area>
+	</city>
+	<city>
+		<name>长春</name>
+		<count>300万</count>
+		<area>30平方公里</area>
+	</city>
+	<city>
+		<name>铁岭</name>
+		<count>230万</count>
+		<area>23平方公里</area>
+	</city>
+	<city>
+		<name>辽宁</name>
+		<count>250万</count>
+		<area>22平方公里</area>
+	</city>
+	<city>
+		<name>大连</name>
+		<count>500万</count>
+		<area>50平方公里</area>
+	</city>
+</provinces>

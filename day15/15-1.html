@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文字上下滚动</title>
+<style>
+	*{
+		margin: 0;padding: 0;
+	}	
+	#dome{
+		position: relative;
+		height: 250px;
+		width: 250px;
+		background: #6fc;
+		padding: 5px;
+		overflow: hidden;
+	}
+	li{
+		list-style: none;
+	}
+</style>
+</head>
+
+<body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="dome">
+	<div id="dome1">
+		<ul id="express">
+			<li>·2010考研英语大纲到货75折...</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+			<li>·权威定本四大名著（人民文...)</li>
+		</ul>
+	</div>
+	<div id="dome2"></div>
+</div>
+<script>
+	var dome=document.getElementById("dome");
+	var dome1=document.getElementById("dome1");
+	var dome2=document.getElementById("dome2");
+	var speed=50;
+	dome2.innerHTML=dome1.innerHTML;
+	function moveTop(){
+		if(dome2.offsetTop-dome.scrollTop<=0)
+			{
+				dome.scrollTop=dome.scrollTop-dome1.offsetHeight
+			}
+		else{
+			dome.scrollTop++
+		}
+	}
+	var MyMar=setInterval(moveTop,speed);
+	dome.onmouseover=function(){clearInterval(MyMar)};
+	dome.onmouseout=function(){MyMar=setInterval(moveTop,speed)};
+</script>
+
+
+</body>
+</html>

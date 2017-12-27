@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>飘窗</title>
+<script>
+function posChange()
+	{
+		window.clearInterval(mytimer);
+		var pageWidth=window.innerWidth; //Firefox,Safari,Opera,Chrome,360 极速
+		var pageHeight=window.innerHeight;
+		
+		if(typeof pageWidth !="number")
+			{
+				if(document.compatMode =="CSS1Compat")  //IE标准兼容模式 CSS1Compat
+					{
+						pageWidth=document.documentElement.clientWidth;
+						pageHeight=document.documentElement.clientHeight;
+					}
+				else          //IE混杂模式 BackCompat 在doctype声明中，没有使用DTD声明或者使用HTML4以下（不包括HTML4）的DTD声明时，基本所有的浏览器都是使用quirks mode呈现
+					{
+						pageWidth=document.body.clientWidth;
+						pageHeight=document.body.clientHeight;
+					}
+			}
+		if(xpos+document.getElementById("float_icon").offsetWidth+25>=pageWidth)
+			{
+				xpos=pageWidth-document.getElementById("float_icon").offsetWidth-25;
+				if(ypos<=0)
+				{
+					ypos=10;
+				}
+			}
+		if(ypos+document.getElementById("float_icon").offsetHeight+25>=pageHeight)
+			{
+				ypos=pageHeight-document.getElementById("float_icon").offsetHeight-25;
+				if(ypos<=0)
+					{
+						ypos=10;
+					}
+			}
+				mytimer=window.setInterval("moveicon()",10);
+	}
+		
+		
+function moveicon()	
+		{
+			var pageWidth=window.innerWidth; //Firefox,Safari,Opera,Chrome,360 极速 文档内可编辑窗口尺寸
+			var pageHeight=window.innerHeight;
+			
+			if(typeof pageWidth !="number")
+			{
+				if(document.compatMode =="CSS1Compat")  //IE标准兼容模式 CSS1Compat
+					{
+						pageWidth=document.documentElement.clientWidth;
+						pageHeight=document.documentElement.clientHeight;
+					}
+				else          //IE混杂模式 BackCompat 在doctype声明中，没有使用DTD声明或者使用HTML4以下（不包括HTML4）的DTD声明时，基本所有的浏览器都是使用quirks mode呈现
+					{
+						pageWidth=document.body.clientWidth;
+						pageHeight=document.body.clientHeight;
+					}
+			}
+			if(xpos<=0||xpos+document.getElementById("float_icon").offsetWidth+20>=pageWidth)   
+				                         //offsetwidth  对象包含的宽度 包括边框，滚动条 总和的 宽度
+				{
+					dirx=-dirx;
+				}
+			if(ypos<=0||ypos+document.getElementById("float_icon").offsetHeight+20>=pageHeight)
+				{
+					diry=-diry;
+				}
+			xpos+=dirx;
+			ypos+=diry;
+			var sTop=document.documentElement.scrollTop ==0 ? document.body.scrollTop:document.documentElement.scrollTop;
+			var sLeft=document.documentElement.scrollLeft==0 ? document.body.scrollLeft:document.documentElement.scrollLeft;
+			document.getElementById("float_icon").style.top=ypos+sTop+"px";
+			document.getElementById("float_icon").style.left=xpos+sLeft+"px";
+		}
+	function closeMe()
+		{
+			document.getElementById("float_icon").style.visibility="hidden";
+		}
+</script>
+</head>
+
+<body>
+<textarea name="aa" rows="80" cols="80">aaa</textarea>
+<div id="float_icon" style="visibility: hidden;position: absolute;left: 0px;top: 0px;width: 100px;height: 100px;z-index: 1;" onMouseOver="window.clearInterval(mytimer)" onMouseOut='mytimer=window.setInterval("moveicon()",10);'>
+
+<div onClick="closeMe()" style="position: absolute;left: 60px;top: 0px;text-align: right;width: 40px;height: 19px;z-index: 2;cursor: pointer;"><font color="#0000ff">关闭</font></div>
+<a href="#" target="_blank"><img src="float_advclose1.gif" border="0" width="100%" height="100%" alt=""></a>	
+</div>
+<script>
+	var dirx=1,diry=1;
+	var xpos=2,ypos=2;
+	var mytimer;
+	document.getElementById("float_icon").style.visibility="visible";
+	mytimer=window.setInterval("moveicon()",10);
+	window.onresize=posChange;  //窗口尺寸改变时调用函数 posChange()
+</script>
+</body>
+</html>

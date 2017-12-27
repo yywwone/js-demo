@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function check1(){
+	
+	if(document.myform.username.value=="请输入登录名"){
+		document.myform.username.value="";
+	}	
+}
+	function check2(){
+		if(document.myform.username.value==""){
+			document.myform.username.value="请输入登录名"
+		}
+	}
+	
+</script>
+</head>
+
+<body>
+<fieldset style="width: 240px">
+<legend>用户登录</legend>
+<form action="" method="post" name="myform">
+
+用户名：<input name="username" type="text" value="请输入登录名" size="20" maxlength="20" onFocus="check1()" onBlur="check2()"><br>
+
+密&nbsp;&nbsp;码:<input name="userpass" type="password" size="20" maxlength="20"><br>
+<input name="login" value="登录" type="submit">
+
+
+</form></fieldset>
+</body>
+</html>

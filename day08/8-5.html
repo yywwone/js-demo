@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<script>
+	var str="欢迎光临xxx本站！----------"
+	function titleMove(){
+		str = str.substring(1,str.length) + str.substring(0,1);
+		document.title = str;
+		
+	}
+	window.setInterval("titleMove()",200);
+	
+	
+	var flag=0;
+	function changecolor(){
+		if (flag==0){
+			document.bgColor="blue";
+			document.myform.b1.value="改变背景为红色"
+			flag=1;
+		}
+		else{
+			document.bgColor="red";
+			document.myform.b1.value="改变背景为蓝色";
+			flag=0;
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="red">
+<h1>document对象属性应用</h1>
+<form method="post" action="" name="myform">
+	<input type="button" value="改变背景为蓝色" onClick="changecolor()" name="b1">
+</form>
+
+</body>
+</html>

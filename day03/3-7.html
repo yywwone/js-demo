@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<script language="javascript">
+
+	//绿树
+/*var i;
+var j;
+var k;
+for(i=1;i<=4;i++){
+	for(j=1;j<=i*2-1;j++){
+		document.write("<font color='green'>*</font>");
+		}
+		document.write("<br>");
+	}
+for(k=1;k<=4;k++){
+	document.write("<font color='green'>*</font><br>")
+	}*/
+	
+var i;
+var j;
+var k;
+var m;
+for(i=1;i<=4;i++)
+{
+	for(m=1;m<=4-i;m++)
+	{
+		document.write("<font color='white'>*</font>");
+		}
+	for(j=1;j<=2*i-1;j++)
+	{
+		document.write("<font color='green'>*</font>");
+	}
+	document.write("<br>");
+}
+for(k=1;k<=4;k++)
+{
+	document.write("<font color='white'>***</font><font color='green'>*</font><br>");
+}
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简易计算器</title>
+</head>
+<script>
+function js1()
+	{
+	var i=parseInt(document.myform.cj1.value);
+	var j=parseInt(document.myform.cj2.value);
+	var k=parseInt(document.myform.cj3.value);
+	var s=i+j+k;
+	document.myform.zcj.value=s;
+	}
+function js2()
+	{
+	var i=parseInt(document.myform.cj1.value);
+	var j=parseInt(document.myform.cj2.value);
+	var k=parseInt(document.myform.cj3.value);
+	var s=(i+j+k)/3;
+	document.myform.pjf.value=s;
+	}
+</script>
+<body>
+<table width="260" border="1">
+	<form name="myform">
+
+		<tr>
+			<td>科目</td>
+			<td>成绩</td>
+		</tr>
+		<tr>
+			<td>语文</td>
+			<td><input type="text" name="cj1"></td>
+		</tr>
+		<tr>
+			<td>数学</td>
+			<td><input type="text" name="cj2"></td>
+		</tr>
+		<tr>
+			<td>英语</td>
+			<td><input type="text" name="cj3"></td>
+		</tr>
+		<tr>
+			<td><button onClick="js1()" type="button">总成绩</button></td>
+			<td><input type="text" name="zcj" onFocus="js1()"></td>
+		</tr>
+		<tr>
+			<td><button onClick="js2()" type="button">平均分</button></td>
+			<td><input type="text" name="pjf" onFocus="js2()"></td>
+		</tr>	
+	</form>	
+</table>
+
+
+
+
+</body>
+</html>

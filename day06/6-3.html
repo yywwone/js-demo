@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>年龄计算2</title>
+
+<script>
+var time= new Date();
+var nowYear=time.getFullYear();
+var nowMonth=time.getMonth()+1;
+var nowDate=time.getDate();
+function trim(str,isall){
+	var result;
+	result=str.replace(/(^\s+)|(\s+$)/g,"") //!!!!!!!!!!!!!!!!!!
+	if(isall.toLowerCase()=="y"){
+		result=str.replace(/\s/g,"")
+	}
+	return result;
+}
+function check(sfzid){
+	sfzid=trim(sfzid,"y");
+	if(sfzid.length!=18){
+		window.alert("身份证长度错误");
+		return false;
+	}
+var sf1_17=sfzid.substring(0,17);
+var sf18=sfzid.substring(17,18);
+if(!((!isNaN(sf1_17))&&(sf18=='X'||sf18=='x'||(!isNaN(sf18)))))
+{
+	window.alert("身份证信息错误!");
+	return false;
+}
+var y=sfzid.substring(6,10);
+y=parseInt(y);
+if(y>nowYear){
+	window.alert("身份证年份错误!");
+	return false;
+}
+var m=sfzid.substring(10,12);
+m=parseInt(m);
+if(!(m>=1&&m<=12)){
+	window.alert("身份证月份错误!");
+	return false;
+}
+var d=sfzid.substring(12,14);
+	d=parseInt(d);
+if(!(d>=1&&d<=31)){
+	window.alert("身份证日期错误!");
+	return false;
+}
+	if((y==nowYear&&m>nowMonth)||(y==nowYear&&m==nowMonth&&d>nowDate)){
+		window.alert("身份证日期错误!!");
+		return false;
+	}
+	return true;
+}
+var cid=window.prompt("请输入身份证号码","");
+	if(check(cid)){
+	   var year=cid.substring(6,10);
+		year=parseInt(year);
+		var month=cid.substring(10,12);
+		month=parseInt(month);
+		var date=cid.substring(12,14);
+		date=parseInt(date);
+	if((nowYear-year>0)&&(nowMonth-month>=0)&&(nowDate-date>=0))
+		{
+			window.alert("你的年龄是"+(nowYear-year));
+		}
+	else{
+		if(nowYear-year<=1){
+			window.alert("宝宝不到一周岁哦！");
+		}else{
+			window.alert("你的年龄是"+(nowYear-year-1));
+		}
+	}
+	   }
+
+	
+	
+	
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

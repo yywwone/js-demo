@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>tab ajax应用</title>
+<style>
+    *{margin: 0;padding: 0;}
+    .container{
+        width: 376px;
+        margin: 25px auto;
+    }
+    .tabTit li{
+        float: left;
+        width: 124px;
+        height: 38px;
+        border: 1px solid #00f;
+        text-align: center;
+        background: #ccf;
+        line-height: 38px;
+        list-style: none;
+		border-right: none;
+		-moz-border-radius-topright:5px;
+		-webkit-border-top-right-radius:5px;
+		border-top-right-radius:5px;
+		-moz-border-radius-topleft:5px;
+		-webkit-border-top-left-radius:5px;
+		border-top-left-radius:5px;
+    }
+	 .tabTit li:last-child{
+         border-right: 1px solid #00f;
+   }
+    .tabTit li:hover{
+        background: #aaaaff;
+        cursor: pointer;
+    }
+    .tabTit .active{
+        /*background: #99f;*/
+		background: #FFFFFF;
+    }
+    .tabCon{
+        width: 374px;
+        height: 400px;
+        border: 1px solid #00f;
+        border-top: none;
+		overflow:auto;
+    }
+	 .tabCon img{
+      float:left;
+    }
+	.tabCon p{
+     margin-left:5px;
+	 margin-right:5px;
+	  text-indent:2em;
+    }
+	.tabCon h1{
+      margin-left:5px;
+	 }
+
+</style>
+<script src='js/jquery-1.11.1.min.js'></script>
+</head>
+
+<body>
+
+<div id="container" class="container">
+        <ul id="tabTit" class="tabTit">
+            <li class="active">HTML5</li>
+            <li>CSS3</li>
+            <li>JAVASCRIPT</li>
+        </ul>
+        <div id="tabCon" class="tabCon">
+         
+        </div>
+    </div>
+<script language="javascript">
+
+//var xmlhttp = false;
+//var tabTits = document.getElementById("tabTit").children;
+// var  len = tabTits.length;
+// var tabData = new Array(3);        
+     
+/*    for (var i = 0; i < len; i++) {
+        tabTits[i].index = i;
+        tabTits[i].onclick = function(){
+            var _this = this;
+          
+            if (!tabData[_this.index]) {
+			
+          	send_request(_this.index);
+            }else{
+               tabCon.innerHTML = tabData[_this.index];
+             //  window.alert("ok");
+            }
+			for (var i = 0; i < len; i++) {
+                tabTits[i].className = "";
+            }
+            _this.className = "active";
+        }
+    }
+	
+	
+function createXMLHttpRequest(){     
+if (window.XMLHttpRequest) {    
+    xmlhttp = new XMLHttpRequest();  
+}   
+else if (window.ActiveXObject) {    
+    try {  
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");  
+    } catch (e) {  
+        try {  
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");  
+       } catch (e) {}  
+    }  
+} 
+}
+function send_request(index){
+	createXMLHttpRequest();
+	if (xmlhttp){
+	xmlhttp.onreadystatechange = function(){    
+   			if(xmlhttp.readyState == 4){      
+        	if(xmlhttp.status == 200){     
+            tabData[index]= xmlhttp.responseText;
+            tabCon.innerHTML = tabData[index];     
+          }    
+        } 
+			}
+		 //var url = "my"+index+".html";
+		     var url = "response.php?id="+index;
+           xmlhttp.open("get", url, true);  // 异步
+           xmlhttp.send(null); 
+	}
+}
+tabTits[0].click(); */
+
+//jquery 
+// url: "response.php",  url: "my"+index+".html",
+// data: "id="+index,
+	var tabData = new Array(3);
+ $('#tabTit li').click(function(){
+        var index = $(this).index();
+      	 if (!tabData[index]) {
+			$.ajax({
+		   type: "get",
+		   url: "response.php",
+			data: "id="+index,
+		   success: function(data){
+			tabData[index]= data;
+			$('#tabCon').html(tabData[index]);
+		   }
+			});
+            }else{
+				 $('#tabCon').html(tabData[index]);
+                 //  window.alert("ok");
+            }
+	    $(this).addClass('active').siblings().removeClass('active');
+    });
+	$('#tabTit li:first-child').trigger("click");
+</script> 
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	body{
+		font-size: 13px;
+		line-height: 25px;
+	}	
+	table{
+		border-top: 1px solid #333;
+		border-left: 1px solid #333;
+		width: 300px;
+	}
+	td{
+		border-right: 1px solid #333;
+		border-bottom: 1px solid #333;
+	}
+	.center{
+		text-align: center;
+	}
+</style>
+
+<script>
+var i=3;
+function addRow()
+	{
+		i++;
+		var newRow=document.createElement("tr");	//创建行节点
+		newRow.setAttribute("id","row"+i);
+		var col1=document.createElement("td");		//创建单元格节点
+		col1.innerHTML="幸福从头而将"+i;
+		var col2=document.createElement("td");		//为单元格添加文本
+		col2.innerHTML="&yen:18.50";
+		col2.setAttribute("align","center");
+		var col3=document.createElement("td");  	//创建单元格节点
+		col3.innerHTML="<input name='rowdel' type='button' value='删除' onclick=\"delRow('row"+i+"')\"/>";
+		newRow.appendChild(col1);
+		newRow.appendChild(col2);
+		newRow.appendChild(col3);
+		document.getElementById("myTable").lastChild.appendChild(newRow);   	//把行节点添加到表格末尾
+	}
+function updateRow()
+	{
+		var uRow=document.getElementById("row1");
+		//标题行设置为字体加粗、文本居中显示，背景颜色为灰色
+		uRow.setAttribute("style","font-weight:bold;text-align:center;background-color:#ccc");
+	}
+function delRow(rid)
+	{
+		var dRow=document.getElementById(rid);   	//访问被删除的行
+		document.getElementById("myTable").lastChild.removeChild(dRow);
+	}
+</script>
+</head>
+
+<body>
+<table border="0"  cellspacing="0" cellpadding="0" id="myTable">
+	<tr id="row1">
+		<td>书名</td>
+		<td>价格</td>
+		<td>操作</td>
+	</tr>
+	<tr id="row2">
+		<td>看得见风景的房间</td>
+		<td class="center">&yen:30.00</td>
+		<td><input name='rowdel' type='button' value='删除' onClick="delRow('row2')"/></td>
+	</tr>
+	<tr id="row3">
+		<td>60个瞬间</td>
+		<td class="center">&yen:32.00</td>
+		<td><input name='rowdel' type='button' value='删除' onClick="delRow('row3')"/></td>
+	</tr>
+</table>
+<input name="b1" type="button" value="增加一行" onClick="addRow()"/>
+<input name="b3" type="button" value="修改标题样式" onClick="updateRow()"/>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script src="myjs.js" language="javascript"></script>
+<body>
+
+
+<script language="javascript">	
+
+	hello();
+	
+	var i=1;
+	var ra=0;
+	var rs;
+	do{
+		ra=window.prompt("请输入第"+i+"个圆的半径,点击'取消'结束","5");
+		if(ra==null){
+			
+				break;
+			}
+		ra=parseFloat(ra);
+		rs=compCircleArea(ra);
+		showMessage("第"+i+"个圆的半径"+ra+",面积是"+rs);
+		i++;
+		}while (true);
+		document.write("<br>程序结束");
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provinces>
+	<city>
+		<name>石家庄</name>
+		<count>500万</count>
+		<area>50平方公里</area>
+	</city>
+	<city>
+		<name>秦皇岛</name>
+		<count>300万</count>
+		<area>30平方公里</area>
+	</city>
+</provinces>

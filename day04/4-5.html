@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<script language="javascript">
+
+function person(cweight,color){
+	this.weight=cweight;
+	this.color=color;
+	this.run=function(target)
+	{
+		document.write("本车颜色是"+this.color+"我开到目的地"+target+"<br>");
+		}
+	
+	}
+	var car1 = new car(20,"green");
+	document.write(car1.color);
+	car1.color="white";
+	document.write(car1.color);
+	car1.run("上海");
+	var car2 = new car(20,"black");
+	car2.run("北京")
+</script>
+</head>
+
+<body>
+</body>
+</html>

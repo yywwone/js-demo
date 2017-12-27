@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>直接传值函数体</title>
+
+<script>
+
+function compute(c,funName){
+	c=c*c;
+	var result=funName(c,c);
+	return result;
+}
+var i=5;
+var res=compute(i,function(a,b){return a+b;});
+
+document.write(res);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

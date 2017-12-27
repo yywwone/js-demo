@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>文件上传</title>
+<style>
+	body{
+		font-size: 13px;
+		line-height: 25px;
+	}	
+	table{
+		width: 400px;
+	}
+	.center{
+		text-align: center;
+	}
+</style>
+
+<script>
+var i=3;
+function addRow()
+	{
+		i++;
+		var newRow=document.createElement("tr");	//创建行节点
+		newRow.setAttribute("id","row"+i);
+		var col1=document.createElement("td");		//创建单元格节点
+		col1.innerHTML="<input type='file'><input name='rowdel' type='button' value='删除' onclick=\"delRow('row"+i+"')\"/>"
+		newRow.appendChild(col1);
+		document.getElementById("myTable").lastChild.appendChild(newRow);   	//把行节点添加到表格末尾
+	}
+function delRow(rid)
+	{
+		var dRow=document.getElementById(rid);   	//访问被删除的行
+		document.getElementById("myTable").lastChild.removeChild(dRow);
+	}
+</script>
+</head>
+
+<body>
+<table  cellspacing="0" cellpadding="0" id="myTable">
+	<tr id="row1">
+		<td>文件上传</td>
+		<td><input name="b1" type="button" value="增加一行" onClick="addRow()"/></td>
+	</tr>
+	<tr id="row2">
+		<td><input type="file"></td>
+	</tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品打折计算</title>
+</head>
+
+<body>
+<script>
+//大于1000打9折，否则不打折
+/*var price=window.prompt("请输入你购买的商品的总钱数",0);
+var cost=1;
+if(price>1000){
+	cost=0.9;
+	}
+	price=price*cost;
+	document.write("商品大于1000打9折，你实付金额是："+price);*/
+	
+	
+	
+	
+//大于1000打8折，小于1000打9折
+/*
+var price=window.prompt("请输入你购买的商品的总钱数",0);
+var cost=1;
+if(price>=1000){
+	cost=0.8;
+	}
+	else{
+		cost=0.9;
+		}
+	price=price*cost;
+	document.write("你实付金额是："+price);
+*/
+
+
+
+//小于1000打折0.9，大于1000小于3000打折0.8 ，大于3000打折0.7
+
+var price=window.prompt("请输入你购买的商品的总钱数",0);
+var cost=1;
+	if(price<=1000){
+		cost=0.9
+		}
+		else{
+			if(price<=3000){
+					cost=0.8
+			}
+				else{
+				cost=0.7
+			
+			}
+	}
+		
+		price=price*cost;
+			document.write("你实付金额是："+price);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

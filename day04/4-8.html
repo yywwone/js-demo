@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+//点击图片消失
+
+
+
+    function fun(){
+	var img=document.getElementById("one");
+	img.width-=10;
+	img.height-=10;
+	img.style.marginLeft=parseInt(img.style.marginLeft)+5+'px';
+	img.style.marginTop=parseInt(img.style.marginTop)+5+'px';
+    if(img.width<=0){
+	   clearTimeout(timeId);
+	   return false	   
+	   }
+   		timeId = setTimeout('fun()',100)
+}
+
+ /* 
+	function fun(){
+	document.getElementById("one").width-=10;
+	document.getElementById("one").height-=10;
+	document.getElementById("one").style.marginLeft=parseInt(document.getElementById("one").style.marginLeft)+5+'px';
+    document.getElementById("one").style.marginTop=parseInt(document.getElementById("one").style.marginTop)+5+'px';
+   if(document.getElementById("one").width<=0){
+	   clearTimeout(timeId);
+	   return false	   
+	   }
+   		timeId = setTimeout('fun()',100)
+}
+*/
+</script>
+</head>
+<body>
+<div style="width:300px; height:400px; border:1px solid red;">
+<img src="a.JPG" width="300" height="400" onClick="fun();" id="one" style="margin-left:0px; margin-top:0px;">
+</div>
+</body>
+</html>

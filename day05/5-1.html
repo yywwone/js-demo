@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多层函数互调，回调</title>
+</head>
+
+<body>
+
+<script language="javascript">
+
+function sum(a,b){
+	return a+b;
+}
+var sum1=function(a,b){
+	return(a+b)*5;
+}
+function compute(c,funName){
+	c=c*c;
+	var result=funName(c,c);
+	return result;
+}
+var i=5;
+var res=compute(i,sum);
+document.write(res+"<br>");
+	res=compute(i,sum1);
+document.write(res);
+
+</script>
+
+</body>
+</html>

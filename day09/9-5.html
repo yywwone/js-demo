@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>对联广告</title>
+</head>
+<script>
+var advInitTop=0;
+var advInitTop1=0;
+var closeInitTop=0;
+var closeInitTop1=0;
+function inix()
+{    
+	 advInitTop=parseInt(document.getElementById("advLayer").style.top);
+ 	 advInitTop1=parseInt(document.getElementById("advLayer1").style.top);
+	 closeInitTop=parseInt(document.getElementById("closeLayer").style.top);
+	 closeInitTop1=parseInt(document.getElementById("closeLayer1").style.top);
+}
+function move()
+{
+	var sTop;
+	//浏览器兼容
+	sTop=document.documentElement.scrollTop == 0 ? document.body.scrollTop:document.documentElement.scrollTop;
+	document.getElementById("advLayer").style.top=advInitTop+sTop+"px";
+	document.getElementById("advLayer1").style.top=advInitTop1+sTop+"px";
+	document.getElementById("closeLayer").style.top=closeInitTop+sTop+"px";
+	document.getElementById("closeLayer1").style.top=closeInitTop1+sTop+"px";
+}
+function closeMe()
+{
+	document.getElementById("advLayer").style.display="none";
+	document.getElementById("advLayer1").style.display="none"; //左右一起关闭
+	document.getElementById("closeLayer").style.display="none";
+	document.getElementById("closeLayer1").style.display="none";//左右一起关闭
+}
+
+/*function closeMe1()   //单独关闭
+{
+	document.getElementById("advLayer1").style.display="none";   //单独关闭
+	document.getElementById("closeLayer1").style.display="none"; //单独关闭
+	}*/
+window.onscroll=move; //窗口的滚动事件，当页面滚动时调用move()函数
+</script>
+<body onLoad="inix()">
+<p align="center">
+	<img src="xiaojie1.jpg" width="768" height="1113">
+</p>
+<div id="closeLayer" onClick="closeMe()" style="position: absolute; left: 60px;top: 80px;width: 54px; height: 19px;z-index: 2;cursor: pointer;"><font color="#0000ff" face="黑体">关闭</font></div>
+
+<div id="closeLayer1" onClick="closeMe()" style="position: absolute; right: 60px;top: 80px;width: 54px; height: 19px;z-index: 2;cursor: pointer;"><font color="#0000ff" face="黑体">关闭</font></div>
+
+<div id="advLayer" style="position: absolute; left: 30px; top: 100px; width: 86px; height: 81px;z-index: 1">
+<a href="9-1.html"><img src="float_advclose1.gif" width="85" height="80" border="0"></a></div>
+
+<div id="advLayer1" style="position: absolute; right: 30px; top: 100px; width: 86px; height: 81px;z-index: 1">
+<a href="9-1.html"><img src="float_advclose1.gif" width="85" height="80" border="0"></a></div>
+	
+</body>
+</html>

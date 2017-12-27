@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>计算年龄</title>
+
+	<script>
+	var c=86400000;
+	var i=window.prompt("请输入你的身份证号","18位身份证号");
+	var j=i.substring(6,10);
+	j=parseInt(j);		
+	var k=new Date();
+	var p=new Date("mary 29,"+j+",10:30:00");
+	var a=k.getTime();
+	var b=p.getTime();
+	s=(a-b)/c/365;
+	s=Math.floor(s);
+	alert(s);
+	
+	</script>
+
+</head>
+
+<body>
+</body>
+</html>

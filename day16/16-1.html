@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>二级city互联(JS)</title>
+</head>
+
+<body>
+省份<select id="province" onChange="changecity(this.value)">
+	<option value="heilongjiang">黑龙江</option>
+	<option value="liaoning">辽宁</option>
+	<option value="hebei">河北</option>
+</select>
+城市<select id="city"></select>
+<script>
+	var xmlhttp;
+	function createXMLHttpRequest(){
+		if(window.XMLHttpRequest){
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			if(window.ActiveXObject){
+				xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			else
+				{
+					xmlhttp=false;
+				}
+		}
+	}
+	function changecity(provinceValue){
+		createXMLHttpRequest();
+		if(xmlhttp){
+			xmlhttp.open("get",provinceValue+".xml",false);
+			xmlhttp.send(null);
+			var xml=xmlhttp.responseXML;
+			var ch=xml.getElementsByTagName("city");
+			var option="<select id='city'>";
+			for(i=0;i<ch.length;i++)
+				{
+					option+="<option>"+ch[i].children[0].firstChild.nodeValue+"</option>";
+				}
+			option+="</select>";
+			document.getElementById("city").outerHTML=option;
+		}
+	}
+	changecity("heilongjiang");
+</script>
+</body>
+</html>

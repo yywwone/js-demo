@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script language="javascript">
+var CID= "230103198012311394"    //身份证号
+var year=CID.substring(6,10);	//substring截取年份
+year=year.fontcolor("red");		//设置颜色为红色
+var month=CID.substring(10,12);	
+month=month.bold()				//加粗
+var day=CID.substring(12,14);	
+day=day.italics()				//斜体
+document.write("<p align='center'>"+"身份证号:"+CID+"<br>"+"身份证长度是:"+CID.length+"<br>"+"生日："+year+"年"+month+"月"+day+"日"+"</p>");
+</script>
+</head>
+
+<body>
+</body>
+</html>

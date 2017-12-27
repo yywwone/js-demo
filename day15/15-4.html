@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片横向移动(单张移动)</title>
+<style>
+	*{
+		margin: 0;padding: 0;
+	}	
+	#dome{
+		height: 500px;
+		width: 1800px;
+		background: #6fc;
+		overflow: scroll;
+		position:relative;
+		padding: 10px;
+	}
+	li{
+		list-style: none;
+		float: left;
+	}
+	li img{
+		width: 900px;
+		height: 500px;
+	}
+	#dome1,#dome2{
+		float:left
+	}
+
+</style>
+</head>
+
+<body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="dome">
+<div style="width:7200px ">
+	<div id="dome1">
+		<ul id="express">
+			<li><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+		</ul>
+	</div>
+	<div id="dome2"></div>
+	</div>
+</div>
+<script>
+	var dome=document.getElementById("dome");
+	var dome1=document.getElementById("dome1");
+	var dome2=document.getElementById("dome2");
+	var speed=4000;
+	var i=0;
+	dome2.innerHTML=dome1.innerHTML;
+		function moveTop(){
+		if(dome1.offsetWidth-dome.scrollLeft<=0)
+			{
+				dome.scrollLeft=dome.scrollLeft-dome1.offsetWidth;
+				setTimeout("move()",5)
+			}
+		else{
+			setTimeout("move()",5);
+			
+		}
+	}
+	function move(){
+		i++;
+		dome.scrollLeft++;
+		if(i<200){
+			setTimeout("move()",5);
+		}else{i=0}
+		}
+	var MyMar=setInterval(moveTop,speed);
+	dome.onmouseover=function(){clearInterval(MyMar)};
+	dome.onmouseout=function(){MyMar=setInterval(moveTop,speed)};
+</script>
+
+
+</body>
+</html>

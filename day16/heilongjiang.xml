@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provinces>
+	<city>
+		<name>哈尔滨</name>
+		<count>500万</count>
+		<area>50平方公里</area>
+	</city>
+	<city>
+		<name>齐齐哈尔</name>
+		<count>300万</count>
+		<area>30平方公里</area>
+	</city>
+	<city>
+		<name>大庆</name>
+		<count>230万</count>
+		<area>23平方公里</area>
+	</city>
+	<city>
+		<name>牡丹江</name>
+		<count>250万</count>
+		<area>22平方公里</area>
+	</city>
+	<city>
+		<name>哈尔滨</name>
+		<count>500万</count>
+		<area>50平方公里</area>
+	</city>
+</provinces>

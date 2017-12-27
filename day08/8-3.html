@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提问器2</title>
+</head>
+
+<body>
+<script>
+	var c;
+	var c=null;
+	
+function a(){
+	var z=rand();
+	document.myform.a1.value=z;
+	function rand()
+	{
+		return Math.floor(Math.random()*50+1); //局部函数调用
+		}
+	
+	
+}
+	
+function d(){
+	if(c==null){
+		c=window.setInterval("a()",10);
+	}
+	
+}
+
+
+function b(){
+	window.clearInterval(c);
+	c=null;
+	h=document.myform.a1.value
+	alert("请第"+h+"位同学回答")
+}
+</script>
+<center>
+	<form name="myform">
+	<input type="text" name="a1" style="border: 1px solid red; width:100px; height: 100px ; font-size: 60px;color:red" >
+	<input type="button" value="开始" onClick="d()">
+	<input type="button" value="停止" onClick="b()">
+	</form>
+
+</center>
+
+</body>
+</html>

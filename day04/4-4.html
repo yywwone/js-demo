@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>计算圆的体积</title>
+
+<script language="javascript">
+function compCircleArea()
+{	document.myform.circleArea.value="";
+	var r=document.myform.radius.value;
+	var h=document.myform.height.value;
+	
+	r=parseFloat(r);
+	h=parseFloat(h);
+	var s=3.14*r*r*h;
+	if(isNaN(s)){		
+		alert("半径或高度错误，请输入数字型字符")
+		document.myform.radius.value="";
+		document.myform.height.value="";
+		return;
+		}
+		
+	document.myform.circleArea.value=s;
+	}
+
+</script>
+</head>
+
+<body>
+<form name="myform" action="">
+半径:<input type="number" name="radius" id="radius" required>
+高度:<input type="text" name="height" id="height">
+圆体积:<input type="text" name="circleArea" id="circleArea" disabled>
+<input type="button" value="计算" onClick="compCircleArea()">
+</form>
+</body>
+</html>

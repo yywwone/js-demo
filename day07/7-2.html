@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简易计算器</title>
+</head>
+<script language="javascript">
+function add(c){
+	var n1=parseInt(document.myform.num1.value);
+	var n2=parseInt(document.myform.num2.value);
+	if(c==1){document.myform.result.value=n1+n2}
+	
+	if(c==2){document.myform.result.value=n1-n2}
+	
+	if(c==3){document.myform.result.value=n1*n2}
+	
+	if(c==4){document.myform.result.value=n1/n2}
+	}
+
+</script>
+<body>
+<table width="260">
+	<form name="myform">
+		<caption>简易计算器</caption>
+		<tr>
+			<td>第一个数</td>
+			<td colspan="3"><input type="text" name="num1"></td>
+		</tr>
+		<tr>
+			<td>第二个数</td>
+			<td colspan="3"><input type="text" name="num2"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value=" + " onClick="add(1)" name="jia"> </td>
+			<td><input type="button" value=" - " onClick="add(2)" name="jian"> </td>
+			<td><input type="button" value=" X " onClick="add(3)" name="cheng"> </td>
+			<td><input type="button" value=" ÷ " onClick="add(4)" name="chu"> </td>			
+		</tr>
+		<tr>
+			<td>结果</td>
+			<td colspan="3"><input type="text" name="result" disabled></td>
+		</tr>		
+	</form>	
+</table>
+
+
+
+
+</body>
+</html>
